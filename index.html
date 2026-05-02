@@ -1,0 +1,2012 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guia do Barbeiro · ManualChave</title>
+
+<meta name="ext-resource-dependency" content="assets/profile-AG.png" data-resource-id="profileAG" />
+<meta name="ext-resource-dependency" content="assets/profile-AE.png" data-resource-id="profileAE" />
+<meta name="ext-resource-dependency" content="assets/profile-AI.png" data-resource-id="profileAI" />
+<meta name="ext-resource-dependency" content="assets/profile-VG.png" data-resource-id="profileVG" />
+<meta name="ext-resource-dependency" content="assets/profile-VE.png" data-resource-id="profileVE" />
+<meta name="ext-resource-dependency" content="assets/profile-VF.png" data-resource-id="profileVF" />
+
+<template id="__bundler_thumbnail" data-bg-color="#1A1A1A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1A1A1A"/>
+    <rect x="0" y="0" width="1200" height="12" fill="#C9A84C"/>
+    <rect x="0" y="788" width="1200" height="12" fill="#C9A84C"/>
+    <g transform="translate(600 400)" fill="none" stroke="#C9A84C" stroke-width="6">
+      <circle cx="-60" cy="60" r="36"/>
+      <circle cx="60" cy="60" r="36"/>
+      <line x1="-36" y1="38" x2="80" y2="-80"/>
+      <line x1="36" y1="38" x2="-80" y2="-80"/>
+    </g>
+    <text x="600" y="600" font-family="Georgia, serif" font-style="italic" font-size="64" font-weight="900" fill="#C9A84C" text-anchor="middle">Guia do Barbeiro</text>
+    <text x="600" y="650" font-family="sans-serif" font-size="20" letter-spacing="6" fill="#9A9590" text-anchor="middle">MANUALCHAVE</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --carvao: #1A1A1A;
+    --carvao-med: #2C2C2C;
+    --carvao-deep: #0D0D0D;
+    --dourado: #C9A84C;
+    --dourado-esc: #A07830;
+    --dourado-clr: #E8C97A;
+    --creme: #F5F0E8;
+    --creme-esc: #EDE5D4;
+    --branco: #FFFFFF;
+    --cinza-claro: #F0EDE8;
+    --cinza-medio: #9A9590;
+    --cinza-esc: #5A5550;
+    --preto: #0D0D0D;
+    --sangue: #6B1F1F;
+
+    --f-titulo: 'Poppins', sans-serif;
+    --f-corpo: 'Lora', serif;
+    --f-display: 'Playfair Display', serif;
+    --f-mono: 'DM Mono', monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family: var(--f-corpo);
+    background: var(--creme);
+    color: var(--carvao);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font: inherit; cursor: pointer; border: none; background: none; color: inherit;}
+
+  /* Listras de barbershop animadas */
+  @keyframes barberStripe {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 56px; }
+  }
+  .barber-pole {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--branco) 0 14px,
+      #b22 14px 28px,
+      var(--branco) 28px 42px,
+      #1d3a8a 42px 56px
+    );
+    animation: barberStripe 4s linear infinite;
+  }
+  .barber-pole-thin {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--carvao) 0 6px,
+      var(--dourado) 6px 12px
+    );
+  }
+
+  /* Texturas */
+  .grain::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Selection */
+  ::selection{ background: var(--dourado); color: var(--carvao); }
+
+  /* Scroll smooth */
+  html{ scroll-behavior: smooth; }
+
+  /* Utility */
+  .container{ max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .container-narrow{ max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow{
+    font-family: var(--f-titulo);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+  .display{
+    font-family: var(--f-display);
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.01em;
+  }
+  .h1{
+    font-family: var(--f-titulo);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-size: clamp(28px, 4vw, 44px);
+  }
+  .h2{
+    font-family: var(--f-titulo);
+    font-weight: 700;
+    line-height: 1.15;
+    font-size: clamp(20px, 2.4vw, 26px);
+  }
+  .lede{
+    font-family: var(--f-corpo);
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.6;
+  }
+  .mono{ font-family: var(--f-mono); }
+
+  /* Botão CTA principal */
+  .btn-primary{
+    display:inline-flex; align-items:center; gap: 14px;
+    background: var(--dourado);
+    color: var(--carvao);
+    font-family: var(--f-titulo);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 18px 28px;
+    border: 2px solid var(--dourado);
+    border-radius: 2px;
+    text-decoration: none;
+    position: relative;
+    transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 0 0 0 rgba(201,168,76,.0);
+  }
+  .btn-primary:hover{
+    background: var(--dourado-esc);
+    border-color: var(--dourado-esc);
+    box-shadow: 0 12px 30px -12px rgba(201,168,76,.6);
+    transform: translateY(-1px);
+  }
+  .btn-primary .arrow{ transition: transform .2s ease; }
+  .btn-primary:hover .arrow{ transform: translateX(4px); }
+
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:10px;
+    color: var(--dourado);
+    border: 1.5px solid var(--dourado);
+    background: transparent;
+    font-family: var(--f-titulo);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .btn-ghost:hover{ background: var(--dourado); color: var(--carvao); }
+
+  /* Sticky CTA bar */
+  .sticky-cta{
+    position: fixed; left:0; right:0; bottom:0;
+    background: var(--carvao);
+    border-top: 2px solid var(--dourado);
+    padding: 12px 24px;
+    transform: translateY(100%);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    z-index: 200;
+    display:flex; align-items:center; justify-content:space-between; gap: 16px;
+  }
+  .sticky-cta.visible{ transform: translateY(0); }
+  .sticky-cta .copy{
+    color: var(--branco);
+    font-family: var(--f-titulo);
+    font-size: 13px;
+  }
+  .sticky-cta .copy strong{ color: var(--dourado); font-weight: 700; }
+
+  /* Section divider art-deco */
+  .deco-rule{
+    display:flex; align-items:center; gap:12px;
+    color: var(--dourado);
+  }
+  .deco-rule .line{ flex:1; height:1px; background: currentColor; opacity:.6; }
+  .deco-rule .glyph{ font-size: 10px; letter-spacing: .4em; }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+
+  /* Anchor offset for sticky */
+  section[id]{ scroll-margin-top: 24px; }
+
+  @media (max-width: 720px){
+    .container, .container-narrow{ padding: 0 20px; }
+    .sticky-cta{ padding: 10px 16px; }
+    .sticky-cta .copy{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<!-- Sticky CTA (rendered outside React for reliable z-index) -->
+<div class="sticky-cta" id="stickyCTA">
+  <div class="copy">
+    <strong>R$ 24,90</strong> · acesso imediato · garantia de 7 dias
+  </div>
+  <a href="#oferta" class="btn-primary" style="padding:12px 22px; font-size:13px;">
+    QUERO O GUIA <span class="arrow">→</span>
+  </a>
+</div>
+
+<script>
+  // Sticky CTA visibility
+  (function(){
+    const el = document.getElementById('stickyCTA');
+    let shown = false;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+      const should = y > vh * 0.7;
+      if (should !== shown){
+        shown = should;
+        el.classList.toggle('visible', shown);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script type="text/babel" data-presets="react">
+// === atoms.jsx ===
+// Reusable atoms
+
+const Eyebrow = ({ children, color, style }) => (
+  <div className="eyebrow" style={{ color: color || 'var(--dourado)', ...style }}>{children}</div>
+);
+
+const DecoRule = ({ glyph = '◆ ◆ ◆', color, style }) => (
+  <div className="deco-rule" style={{ color: color || 'var(--dourado)', ...style }}>
+    <span className="line"></span>
+    <span className="glyph mono">{glyph}</span>
+    <span className="line"></span>
+  </div>
+);
+
+// Decorative art-deco corner ornament (SVG)
+const DecoCorner = ({ size = 60, color = 'currentColor', flip = false, style }) => (
+  <svg width={size} height={size} viewBox="0 0 60 60" style={{ transform: flip ? 'scaleX(-1)' : 'none', ...style }}>
+    <g stroke={color} strokeWidth="1" fill="none">
+      <path d="M0 0 L60 0 L60 8 L8 8 L8 60 L0 60 Z" fill={color} stroke="none" opacity="0.0"/>
+      <path d="M0 0 L60 0" />
+      <path d="M0 0 L0 60" />
+      <path d="M4 4 L56 4" opacity=".55" />
+      <path d="M4 4 L4 56" opacity=".55" />
+      <circle cx="12" cy="12" r="2" fill={color} stroke="none" />
+      <path d="M20 4 L20 12 L28 12" />
+      <path d="M4 20 L12 20 L12 28" />
+    </g>
+  </svg>
+);
+
+// Razor blade vector
+const RazorIcon = ({ size = 28, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M16 2 L26 7 L26 25 L16 30 L6 25 L6 7 Z" stroke={color} strokeWidth="1.4"/>
+    <path d="M16 7 L22 10 L22 22 L16 25 L10 22 L10 10 Z" stroke={color} strokeWidth=".8" opacity=".6"/>
+    <circle cx="16" cy="16" r="1.2" fill={color}/>
+    <path d="M16 11 L16 13 M16 19 L16 21 M11 16 L13 16 M19 16 L21 16" stroke={color} strokeWidth=".8"/>
+  </svg>
+);
+
+const ScissorsIcon = ({ size = 28, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <circle cx="9" cy="22" r="4" stroke={color} strokeWidth="1.4"/>
+    <circle cx="23" cy="22" r="4" stroke={color} strokeWidth="1.4"/>
+    <path d="M11.8 19.2 L26 5" stroke={color} strokeWidth="1.4"/>
+    <path d="M20.2 19.2 L6 5" stroke={color} strokeWidth="1.4"/>
+    <path d="M16 13 L20 17" stroke={color} strokeWidth="1.4"/>
+  </svg>
+);
+
+const CombIcon = ({ size = 28, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <rect x="4" y="6" width="24" height="6" stroke={color} strokeWidth="1.4"/>
+    <path d="M6 12 L6 22 M9 12 L9 24 M12 12 L12 22 M15 12 L15 24 M18 12 L18 22 M21 12 L21 24 M24 12 L24 22 M27 12 L27 24" stroke={color} strokeWidth="1.4" strokeLinecap="round"/>
+  </svg>
+);
+
+const StarIcon = ({ size = 14, color = 'currentColor', filled = true }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? color : 'none'} stroke={color} strokeWidth="1.5">
+    <path d="M12 2 L15 9 L22 9.5 L17 14.5 L18.5 22 L12 18 L5.5 22 L7 14.5 L2 9.5 L9 9 Z"/>
+  </svg>
+);
+
+// Vintage barber pole stripe (vertical bar)
+const BarberStripe = ({ height = 4, style }) => (
+  <div className="barber-pole" style={{ width: '100%', height, ...style }} />
+);
+
+// Section title block — eyebrow + heading + optional kicker
+const SectionTitle = ({ eyebrow, title, kicker, align = 'left', dark = false, eyebrowColor }) => {
+  const fg = dark ? 'var(--branco)' : 'var(--carvao)';
+  return (
+    <div style={{ textAlign: align, color: fg }}>
+      {eyebrow && <Eyebrow color={eyebrowColor || 'var(--dourado)'}>{eyebrow}</Eyebrow>}
+      {title && (
+        <h2 className="display" style={{
+          fontSize: 'clamp(32px, 4.4vw, 56px)',
+          margin: '14px 0 0',
+          color: fg,
+        }}>
+          {title}
+        </h2>
+      )}
+      {kicker && (
+        <p className="lede" style={{
+          margin: '20px 0 0',
+          color: dark ? 'rgba(255,255,255,.78)' : 'var(--cinza-esc)',
+          maxWidth: 680,
+          ...(align === 'center' ? { marginLeft: 'auto', marginRight: 'auto' } : {}),
+        }}>
+          {kicker}
+        </p>
+      )}
+    </div>
+  );
+};
+
+// Highlight box from design system
+const HighlightBox = ({ kind = 'dica', title, children }) => {
+  const map = {
+    dica:      { bg: '#1A1A1A', text: '#FFFFFF', border: '#C9A84C', label: 'DICA', labelColor: '#C9A84C' },
+    atencao:   { bg: '#F5F0E8', text: '#1A1A1A', border: '#C9A84C', label: 'ATENÇÃO', labelColor: '#A07830' },
+    checklist: { bg: '#EDE5D4', text: '#1A1A1A', border: '#A07830', label: 'CHECKLIST', labelColor: '#A07830' },
+  };
+  const s = map[kind];
+  return (
+    <div style={{
+      background: s.bg, color: s.text,
+      borderLeft: `4px solid ${s.border}`,
+      padding: '20px 24px',
+    }}>
+      <div className="eyebrow" style={{ color: s.labelColor, marginBottom: 8 }}>{title || s.label}</div>
+      <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 15, lineHeight: 1.6 }}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+// Class badge — emoji + code, design-system style
+const ClassBadge = ({ symbol, code, name }) => (
+  <div style={{
+    display: 'flex', alignItems: 'center', gap: 12,
+    background: 'var(--creme)',
+    borderLeft: '3px solid var(--dourado)',
+    padding: '12px 16px',
+    minWidth: 220,
+  }}>
+    <div style={{
+      width: 44, height: 44, borderRadius: 2,
+      background: 'var(--carvao)', color: 'var(--dourado)',
+      display: 'grid', placeItems: 'center',
+      fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 13, letterSpacing: '.06em',
+    }}>{code}</div>
+    <div>
+      <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 14, fontWeight: 700, color: 'var(--carvao)' }}>
+        <span style={{ marginRight: 6, fontSize: 16 }}>{symbol}</span>{name}
+      </div>
+      <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 11, color: 'var(--cinza-esc)', marginTop: 2 }}>
+        Perfil {code.startsWith('A') ? 'Aspirante' : 'Veterano'}
+      </div>
+    </div>
+  </div>
+);
+
+Object.assign(window, {
+  Eyebrow, DecoRule, DecoCorner, RazorIcon, ScissorsIcon, CombIcon, StarIcon,
+  BarberStripe, SectionTitle, HighlightBox, ClassBadge,
+});
+
+// === hero.jsx ===
+// HERO
+
+const Hero = ({ tweaks }) => {
+  const headline = tweaks.headline;
+  const headlines = {
+    A: { l1: 'Você não precisa de mais', l2: 'informação. Precisa de', l3: 'um caminho.' },
+    B: { l1: 'Tudo que você precisa', l2: 'para abrir sua barbearia.', l3: 'Em um único lugar.' },
+    C: { l1: 'Você não precisa de', l2: 'mais informação. Precisa', l3: 'de um caminho.' },
+  };
+  const h = headlines[headline] || headlines.C;
+
+  return (
+    <section style={{
+      position: 'relative',
+      background: 'var(--carvao-deep)',
+      color: 'var(--branco)',
+      overflow: 'hidden',
+      borderBottom: '1px solid #2a2a2a',
+    }} className="grain">
+
+      {/* Top bar — barbershop pole */}
+      <div className="barber-pole" style={{ height: 6, width: '100%' }} />
+
+      {/* Top nav */}
+      <div className="container" style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '20px 32px', position: 'relative', zIndex: 5,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{
+            width: 36, height: 36, border: '1.5px solid var(--dourado)',
+            display: 'grid', placeItems: 'center', borderRadius: 2,
+          }}>
+            <div style={{
+              fontFamily: 'var(--f-display)', fontWeight: 900,
+              color: 'var(--dourado)', fontSize: 18, lineHeight: 1,
+            }}>M</div>
+          </div>
+          <div>
+            <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 9 }}>MANUALCHAVE</div>
+            <div style={{ fontFamily: 'var(--f-display)', fontSize: 16, fontWeight: 700, color: 'var(--branco)', lineHeight: 1 }}>
+              Guia do Barbeiro
+            </div>
+          </div>
+        </div>
+        <div className="eyebrow" style={{ color: 'var(--cinza-medio)', fontSize: 10 }}>
+          EDIÇÃO 2026
+        </div>
+      </div>
+
+      {/* Decorative ornaments */}
+      <div style={{ position: 'absolute', top: 80, left: 24, color: 'var(--dourado)', opacity: .35 }}>
+        <DecoCorner size={70} />
+      </div>
+      <div style={{ position: 'absolute', top: 80, right: 24, color: 'var(--dourado)', opacity: .35 }}>
+        <DecoCorner size={70} flip />
+      </div>
+
+      {/* Main hero content */}
+      <div className="container" style={{
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1.15fr) minmax(0, 1fr)',
+        gap: 64, alignItems: 'center',
+        padding: '60px 32px 80px',
+        position: 'relative',
+      }}>
+
+        {/* LEFT — copy */}
+        <div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 12px', border: '1px solid var(--dourado)', color: 'var(--dourado)' }}>
+            <RazorIcon size={14} />
+            <span className="eyebrow" style={{ fontSize: 10, color: 'var(--dourado)' }}>O MANUAL DEFINITIVO · 2026</span>
+          </div>
+
+          <h1 className="display" style={{
+            fontSize: 'clamp(40px, 6.4vw, 84px)',
+            margin: '28px 0 0',
+            color: 'var(--branco)',
+          }}>
+            <span style={{ display: 'block' }}>{h.l1}</span>
+            <span style={{ display: 'block', color: 'var(--dourado)', fontStyle: 'italic' }}>{h.l2}</span>
+            <span style={{ display: 'block' }}>{h.l3}</span>
+          </h1>
+
+          <p className="lede" style={{ marginTop: 28, color: 'rgba(255,255,255,.78)', maxWidth: 540 }}>
+            Do planejamento ao primeiro cliente — legislação, financeiro, identidade visual e gestão — em um guia que se adapta ao <em style={{ color: 'var(--dourado-clr)' }}>seu perfil</em> e <em style={{ color: 'var(--dourado-clr)' }}>orçamento</em>. Não ao contrário.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 36, alignItems: 'center' }}>
+            <a href="#oferta" className="btn-primary">
+              QUERO O GUIA DO BARBEIRO — R$ 19,90
+              <span className="arrow">→</span>
+            </a>
+            <a href="#modulos" className="btn-ghost">VER OS 9 MÓDULOS</a>
+          </div>
+
+          <div style={{ display: 'flex', gap: 20, marginTop: 28, color: 'var(--cinza-medio)', fontSize: 12, fontFamily: 'var(--f-titulo)', flexWrap: 'wrap' }}>
+            <span>✓ Acesso imediato</span>
+            <span>✓ 7 dias de garantia</span>
+            <span>✓ Pix ou cartão</span>
+            <span>✓ 9 módulos completos</span>
+          </div>
+        </div>
+
+        {/* RIGHT — ebook 3D mockup */}
+        <div style={{ position: 'relative', perspective: 1400, minHeight: 480 }}>
+          <EbookMockup />
+        </div>
+      </div>
+
+      {/* Bottom marquee strip */}
+      <div style={{
+        borderTop: '1px solid #2a2a2a', borderBottom: '1px solid #2a2a2a',
+        padding: '14px 0', overflow: 'hidden',
+      }}>
+        <div style={{ display: 'flex', gap: 48, color: 'var(--dourado)', whiteSpace: 'nowrap', animation: 'marquee 36s linear infinite' }}>
+          {Array.from({ length: 3 }).flatMap((_, k) => (
+            ['LEGISLAÇÃO', '◆', 'FINANCEIRO', '◆', 'PRECIFICAÇÃO', '◆', 'IDENTIDADE VISUAL', '◆', 'PONTO COMERCIAL', '◆', 'MARKETING DIGITAL', '◆', 'ATENDIMENTO', '◆', 'GESTÃO', '◆', 'ABERTURA EM 15 DIAS', '◆']
+              .map((t, i) => (
+                <span key={`${k}-${i}`} className="eyebrow" style={{ fontSize: 11, color: i % 2 ? 'var(--dourado)' : 'var(--branco)' }}>{t}</span>
+              ))
+          ))}
+        </div>
+        <style>{`@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }`}</style>
+      </div>
+    </section>
+  );
+};
+
+const EbookMockup = () => (
+  <div style={{
+    position: 'relative',
+    transform: 'rotateY(-22deg) rotateX(6deg) rotateZ(-2deg)',
+    transformStyle: 'preserve-3d',
+    width: 320, height: 460,
+    margin: '0 auto',
+    filter: 'drop-shadow(40px 40px 60px rgba(0,0,0,.5))',
+  }}>
+    {/* Spine / depth */}
+    <div style={{
+      position: 'absolute', left: -10, top: 4, bottom: 4, width: 20,
+      background: 'linear-gradient(90deg, #0a0a0a, #1a1a1a 60%, #2a2a2a)',
+      transform: 'rotateY(-90deg) translateZ(-160px)',
+    }}/>
+    {/* Cover */}
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: 'var(--carvao)',
+      border: '1px solid #333',
+      boxShadow: 'inset 0 0 0 8px var(--carvao), inset 0 0 0 9px var(--dourado)',
+      display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+      padding: 32,
+    }}>
+      {/* Top decoration */}
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <DecoCorner size={36} color="var(--dourado)" />
+          <DecoCorner size={36} color="var(--dourado)" flip />
+        </div>
+        <div style={{ marginTop: 18, textAlign: 'center' }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 9, letterSpacing: '.32em' }}>MANUALCHAVE · MANUAL Nº 01</div>
+          <DecoRule glyph="◆" style={{ marginTop: 10, opacity: .8 }} />
+        </div>
+      </div>
+
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontFamily: 'var(--f-corpo)', fontStyle: 'italic', color: 'var(--dourado-clr)', fontSize: 11, letterSpacing: '.08em' }}>O guia definitivo para abrir</div>
+        <div className="display" style={{ fontSize: 44, color: 'var(--branco)', marginTop: 8, lineHeight: .92 }}>
+          GUIA<br/><span style={{ color: 'var(--dourado)', fontStyle: 'italic' }}>do</span><br/>BARBEIRO
+        </div>
+        <div style={{ marginTop: 18, display: 'inline-block' }}>
+          <ScissorsIcon size={32} color="var(--dourado)" />
+        </div>
+        <div className="eyebrow" style={{ color: 'var(--dourado-clr)', fontSize: 9, marginTop: 14, letterSpacing: '.3em' }}>
+          DO ZERO À INAUGURAÇÃO
+        </div>
+      </div>
+
+      <div>
+        <DecoRule glyph="◆ ◆ ◆" style={{ marginBottom: 14, opacity: .8 }} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 8 }}>EDIÇÃO 2026</div>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 8 }}>9 MÓDULOS · 6 PERFIS</div>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 8 }}>VOL · I</div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16 }}>
+          <DecoCorner size={28} color="var(--dourado)" style={{ transform: 'scaleY(-1)' }} />
+          <DecoCorner size={28} color="var(--dourado)" flip style={{ transform: 'scaleY(-1) scaleX(-1)' }} />
+        </div>
+      </div>
+    </div>
+
+    {/* Glare */}
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: 'linear-gradient(120deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.04) 60%, rgba(0,0,0,.2))',
+      pointerEvents: 'none',
+    }}/>
+  </div>
+);
+
+Object.assign(window, { Hero, EbookMockup });
+
+// === sections-1.jsx ===
+// SECTIONS PART 1 — Opening, Pain, Solution
+
+const OpeningBlock = () => (
+  <section style={{ background: 'var(--branco)', padding: '120px 0', position: 'relative' }}>
+    <div className="container-narrow">
+      <DecoRule glyph="◆ ◆ ◆" />
+      <p style={{
+        fontFamily: 'var(--f-display)',
+        fontSize: 'clamp(24px, 3vw, 38px)',
+        fontStyle: 'italic',
+        fontWeight: 700,
+        lineHeight: 1.3,
+        color: 'var(--carvao)',
+        margin: '40px 0 28px',
+        textWrap: 'balance',
+      }}>
+        “Você já pesquisou. Já assistiu vídeo. Já leu artigo. E no final do dia ainda fica com a sensação de que está faltando alguma coisa.”
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, marginTop: 32 }}>
+        <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--cinza-esc)' }}>
+          Não é falta de vontade. Não é falta de informação. É <strong style={{ color: 'var(--carvao)' }}>excesso de informação sem ordem</strong>, sem contexto, e sem considerar a sua situação específica.
+        </p>
+        <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--cinza-esc)' }}>
+          Quem está abrindo a primeira barbearia não precisa de mais conteúdo. Precisa de um <strong style={{ color: 'var(--carvao)' }}>caminho claro</strong> — o que fazer, em que ordem, e o que considerar dado seu orçamento.
+        </p>
+      </div>
+      <DecoRule glyph="◆" style={{ marginTop: 64 }} />
+    </div>
+  </section>
+);
+
+const PAIN_POINTS = [
+  { num: '01', t: 'MEI ou outro CNPJ?', d: 'Cada resposta na internet contradiz a anterior.' },
+  { num: '02', t: 'Quanto investir?', d: 'Os números que você acha não consideram a sua faixa.' },
+  { num: '03', t: 'Como precificar?', d: 'Sem saber o custo real, qualquer valor é chute.' },
+  { num: '04', t: 'Alvará, vigilância, contrato.', d: 'Você sabe que precisa, mas não sabe o que cada um exige. E o que não sabe pode custar R$ 50.000 de multa — ou uma reforma inteira no lixo.' },
+];
+
+const PainSection = () => (
+  <section style={{ background: 'var(--creme)', padding: '120px 0' }}>
+    <div className="container">
+      <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1fr', gap: 80, alignItems: 'start' }}>
+        <div style={{ position: 'sticky', top: 40 }}>
+          <Eyebrow>SE VOCÊ ESTÁ AQUI</Eyebrow>
+          <h2 className="display" style={{ fontSize: 'clamp(36px, 4.6vw, 60px)', margin: '16px 0 24px' }}>
+            Você sabe que <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>quer abrir</span>.
+            Mas todo passo abre uma nova dúvida.
+          </h2>
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--cinza-esc)' }}>
+            Isso não é falta de vontade.<br/>É falta de um <strong style={{ color: 'var(--carvao)' }}>roteiro</strong>.
+          </p>
+        </div>
+
+        <div>
+          {PAIN_POINTS.map((p, i) => (
+            <div key={p.num} style={{
+              display: 'grid', gridTemplateColumns: '60px 1fr',
+              gap: 24, padding: '28px 0',
+              borderTop: '1px solid var(--creme-esc)',
+              borderBottom: i === PAIN_POINTS.length - 1 ? '1px solid var(--creme-esc)' : 'none',
+              alignItems: 'start',
+            }}>
+              <div style={{
+                fontFamily: 'var(--f-display)', fontSize: 32, fontStyle: 'italic',
+                color: 'var(--dourado)', fontWeight: 700, lineHeight: 1,
+              }}>{p.num}</div>
+              <div>
+                <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 20, fontWeight: 700, color: 'var(--carvao)' }}>
+                  {p.t}
+                </div>
+                <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 16, color: 'var(--cinza-esc)', marginTop: 6, lineHeight: 1.6 }}>
+                  {p.d}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Single transition line — replaces the "premissas" block
+const TransitionLine = () => (
+  <section style={{ background: 'var(--creme)', padding: '40px 0 120px' }}>
+    <div className="container-narrow" style={{ textAlign: 'center' }}>
+      <DecoRule glyph="◆" style={{ marginBottom: 36 }} />
+      <p style={{
+        fontFamily: 'var(--f-display)', fontStyle: 'italic', fontWeight: 700,
+        fontSize: 'clamp(26px, 3.4vw, 44px)', lineHeight: 1.3,
+        color: 'var(--carvao)', margin: 0, textWrap: 'balance',
+      }}>
+        Mais conteúdo não resolve isso. <span style={{ color: 'var(--dourado-esc)' }}>Um caminho claro, na ordem certa, adaptado à sua realidade</span> — resolve.
+      </p>
+      <DecoRule glyph="◆" style={{ marginTop: 36 }} />
+    </div>
+  </section>
+);
+
+// SolutionSection — now an Antes/Depois (Without/With the guide) block
+const BEFORE_AFTER = [
+  {
+    b: '15 vídeos no YouTube, cada um falando uma coisa diferente.',
+    a: 'Tudo na ordem certa, módulo a módulo, do planejamento à abertura.',
+  },
+  {
+    b: 'Chute no investimento inicial — sem saber o que vem depois.',
+    a: 'Investimento real por faixa — a partir de R$ 2.000, com o que cada uma inclui e o que priorizar primeiro.',
+  },
+  {
+    b: 'Assinar o contrato do ponto sem checar a vigilância sanitária antes.',
+    a: 'Checklist de legislação antes de assinar qualquer coisa — sem surpresa cara.',
+  },
+  {
+    b: 'Precificar com base no concorrente — sem saber se está lucrando.',
+    a: 'Fórmula de precificação passo a passo, adaptada ao seu custo fixo real.',
+  },
+  {
+    b: 'Meses de planejamento. A barbearia continua no papel.',
+    a: 'Roteiro de 15 a 30 dias. Data de abertura definida.',
+  },
+];
+
+const SolutionSection = () => (
+  <section style={{
+    background: 'var(--carvao-deep)', color: 'var(--branco)',
+    padding: '140px 0', position: 'relative', overflow: 'hidden',
+  }} className="grain">
+    <div className="container" style={{ position: 'relative' }}>
+      <div style={{ maxWidth: 760, marginBottom: 64 }}>
+        <Eyebrow>A TRANSFORMAÇÃO</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(40px, 5vw, 68px)', margin: '20px 0 0', color: 'var(--branco)' }}>
+          O que muda quando você tem <span style={{ color: 'var(--dourado)', fontStyle: 'italic' }}>o caminho</span>.
+        </h2>
+      </div>
+
+      <div style={{
+        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1,
+        background: '#2a2a2a', border: '1px solid #2a2a2a',
+      }}>
+        {/* Column headers */}
+        <div style={{ background: 'var(--carvao)', padding: '20px 28px' }}>
+          <div className="eyebrow" style={{ color: 'var(--cinza-medio)', fontSize: 11, letterSpacing: '.3em' }}>SEM O GUIA</div>
+        </div>
+        <div style={{ background: 'var(--carvao)', padding: '20px 28px', borderLeft: '2px solid var(--dourado)' }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 11, letterSpacing: '.3em' }}>COM O GUIA</div>
+        </div>
+
+        {/* Rows */}
+        {BEFORE_AFTER.map((row, i) => (
+          <React.Fragment key={i}>
+            <div style={{
+              background: 'rgba(255,255,255,.02)', padding: '24px 28px',
+              display: 'grid', gridTemplateColumns: '36px 1fr', gap: 16, alignItems: 'start',
+            }}>
+              <div style={{
+                fontFamily: 'var(--f-display)', fontStyle: 'italic', fontWeight: 700,
+                fontSize: 22, color: 'var(--cinza-medio)', lineHeight: 1,
+              }}>{String(i + 1).padStart(2, '0')}</div>
+              <div style={{
+                fontFamily: 'var(--f-corpo)', fontSize: 15.5, lineHeight: 1.6,
+                color: 'rgba(255,255,255,.55)',
+                textDecoration: 'line-through', textDecorationColor: 'rgba(255,255,255,.25)',
+              }}>{row.b}</div>
+            </div>
+            <div style={{
+              background: 'rgba(201,168,76,.04)', padding: '24px 28px',
+              borderLeft: '2px solid var(--dourado)',
+              display: 'grid', gridTemplateColumns: '36px 1fr', gap: 16, alignItems: 'start',
+            }}>
+              <div style={{
+                fontFamily: 'var(--f-display)', fontStyle: 'italic', fontWeight: 900,
+                fontSize: 22, color: 'var(--dourado)', lineHeight: 1,
+              }}>{String(i + 1).padStart(2, '0')}</div>
+              <div style={{
+                fontFamily: 'var(--f-corpo)', fontSize: 16, lineHeight: 1.6,
+                color: 'var(--branco)',
+              }}>{row.a}</div>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// Profile classes
+const PROFILES = [
+  { code: 'AG', name: 'Aspirante Guerreiro', tag: 'Entrando agora, sem capital. O caminho existe — é mais lento, mas existe.' },
+  { code: 'AE', name: 'Aspirante Estrategista', tag: 'Estreante com algum capital. Use a margem para eliminar riscos, não para apressar.' },
+  { code: 'AI', name: 'Aspirante Investidor', tag: 'Estreante com capital adequado. O desafio é gastar certo — não gastar tudo.' },
+  { code: 'VG', name: 'Veterano Guerreiro', tag: 'Sabe fazer o serviço. Agora precisa aprender a gerir o negócio.' },
+  { code: 'VE', name: 'Veterano Estrategista', tag: 'Experiente, capital moderado. O próximo passo não precisa ser perfeito — precisa acontecer.' },
+  { code: 'VF', name: 'Veterano Fundador', tag: 'Experiência e capital. Seu único inimigo é a arrogância de pular etapas.' },
+];
+
+const ProfilesSection = () => (
+  <section style={{ background: 'var(--creme)', padding: '120px 0' }}>
+    <div className="container">
+      <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto 60px' }}>
+        <Eyebrow>PARA QUEM É</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(36px, 4.6vw, 60px)', margin: '16px 0 20px' }}>
+          O guia foi construído com 6 perfis. <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>Você lê o que é seu</span>.
+        </h2>
+        <p className="lede" style={{ color: 'var(--cinza-esc)' }}>
+          Não existe uma resposta certa para quem tem R$ 2.000 e para quem tem R$ 35.000. Não existe o mesmo caminho para quem nunca tocou em uma máquina e para quem barbeia há 8 anos. Cada módulo tem uma seção específica para o seu perfil.
+        </p>
+      </div>
+
+      <div className="profiles-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        {PROFILES.map(p => (
+          <div key={p.code} style={{
+            background: 'var(--branco)',
+            borderLeft: '3px solid var(--dourado)',
+            padding: '22px 22px',
+            display: 'flex', gap: 16, alignItems: 'flex-start',
+          }}>
+            <div style={{
+              width: 72, height: 72, flexShrink: 0,
+              display: 'grid', placeItems: 'center',
+              position: 'relative',
+            }}>
+              <img src={window.__resources && window.__resources['profile' + p.code] || `assets/profile-${p.code}.png`} alt={p.name} style={{
+                width: 72, height: 72,
+                objectFit: 'contain',
+                display: 'block',
+              }} />
+              <div style={{
+                position: 'absolute', bottom: -6, right: -4,
+                fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 9,
+                letterSpacing: '.08em', color: 'var(--carvao)',
+                background: 'var(--dourado)',
+                padding: '2px 6px',
+              }}>{p.code}</div>
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 15, color: 'var(--carvao)' }}>{p.name}</div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 13.5, color: 'var(--cinza-esc)', marginTop: 6, lineHeight: 1.55 }}>{p.tag}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+Object.assign(window, { OpeningBlock, PainSection, TransitionLine, SolutionSection, ProfilesSection });
+
+// === sections-2.jsx ===
+// SECTIONS PART 2 — Modules, Social proof
+
+const MODULES = [
+  { n: '01', t: 'Norte Inicial', d: 'Validação da ideia, escolha do modelo e data de abertura real.' },
+  { n: '02', t: 'Identidade Visual e Marca', d: 'INPI, logo, paleta e estética do espaço por orçamento.' },
+  { n: '03', t: 'Legislação e Regularização', d: 'Contador, MEI, alvará e vigilância sanitária — sem surpresa.' },
+  { n: '03b', t: 'Ponto Comercial', d: 'Como avaliar e negociar antes de assinar qualquer contrato.' },
+  { n: '04', t: 'Financeiro, Estrutura e Ferramentas', d: 'Investimento real por faixa. Precificação. Cadeiras e máquinas com marcas e preços.' },
+  { n: '05', t: 'Atendimento e Experiência', d: 'Leitura do cliente, fidelização e o que separa quem retém de quem depende de novo cliente.' },
+  { n: '06', t: 'Marketing Digital', d: 'Google Meu Negócio, Instagram e os primeiros 50 clientes.' },
+  { n: '07', t: 'Gestão Operacional', d: 'Rotinas diárias, 4 métricas essenciais e liderança de equipe.' },
+  { n: '08', t: 'Receita Extra', d: 'Bebidas, produtos e ambiente — como aumentar o ticket sem aumentar o espaço.' },
+];
+
+const ModulesSection = () => (
+  <section id="modulos" style={{ background: 'var(--branco)', padding: '140px 0' }}>
+    <div className="container">
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24, marginBottom: 32 }}>
+        <div style={{ maxWidth: 720 }}>
+          <Eyebrow>O ROTEIRO</Eyebrow>
+          <h2 className="display" style={{ fontSize: 'clamp(40px, 5vw, 68px)', margin: '16px 0 0' }}>
+            9 módulos. <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>Na ordem certa</span>. Com lógica entre eles.
+          </h2>
+        </div>
+      </div>
+      <p style={{ fontFamily: 'var(--f-corpo)', fontSize: 17, lineHeight: 1.7, color: 'var(--cinza-esc)', maxWidth: 720, marginBottom: 56 }}>
+        Não é uma coletânea de dicas. É um material com sequência: você segue a ordem, toma as decisões certas no momento certo, e chega à abertura sem ter desperdiçado dinheiro nem energia com o que não importava ainda.
+      </p>
+
+      <div style={{ borderTop: '1.5px solid var(--dourado)' }}>
+        {MODULES.map((m, i) => (
+          <div key={m.n} style={{
+            display: 'grid',
+            gridTemplateColumns: '120px 1fr auto',
+            gap: 32,
+            padding: '32px 0',
+            borderBottom: '1px solid var(--creme-esc)',
+            alignItems: 'center',
+            position: 'relative',
+            transition: 'background .2s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.background = 'var(--creme)'}
+          onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+          >
+            <div style={{
+              fontFamily: 'var(--f-display)',
+              fontStyle: 'italic',
+              fontWeight: 900,
+              fontSize: m.n.length > 2 ? 50 : 64,
+              color: 'var(--dourado)',
+              lineHeight: 1,
+            }}>{m.n}</div>
+            <div>
+              <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 26, fontWeight: 700, color: 'var(--carvao)' }}>
+                {m.t}
+              </div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontStyle: 'italic', fontSize: 17, color: 'var(--cinza-esc)', marginTop: 4 }}>
+                {m.d}
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, color: 'var(--cinza-medio)' }}>
+              <span className="eyebrow" style={{ fontSize: 10 }}>MÓD · {m.n}</span>
+              <span style={{ fontSize: 22, color: 'var(--dourado)' }}>→</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 3 credibility numbers */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24,
+        marginTop: 64,
+      }}>
+        {[
+          { n: '9', t: 'módulos completos' },
+          { n: '6', t: 'perfis de leitor' },
+          { n: '15—30', t: 'dias até abrir' },
+        ].map((s, i) => (
+          <div key={i} style={{
+            border: '1px solid var(--creme-esc)', borderTop: '3px solid var(--dourado)',
+            padding: '32px 28px', background: 'var(--creme)',
+            display: 'flex', flexDirection: 'column',
+          }}>
+            <div style={{
+              fontFamily: 'var(--f-display)', fontSize: 'clamp(48px, 5vw, 72px)', fontStyle: 'italic',
+              fontWeight: 900, color: 'var(--dourado-esc)', lineHeight: .9,
+              letterSpacing: '-.02em',
+            }}>{s.n}</div>
+            <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 14, fontWeight: 600, color: 'var(--carvao)', marginTop: 14, letterSpacing: '.06em', textTransform: 'uppercase' }}>
+              {s.t}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const BENEFITS = [
+  { ic: '✕', neg: 'Vasculhar vídeo, artigo e grupo de WhatsApp', pos: 'Tudo organizado, na ordem em que você precisa.' },
+  { ic: '✕', neg: 'Chutar quanto investir', pos: 'Investimento real por faixa de orçamento, com precificação e reserva.' },
+  { ic: '✕', neg: 'Abrir na ilegalidade sem perceber', pos: 'Legislação, CNPJ, alvará e vigilância — em linguagem direta.' },
+  { ic: '✕', neg: 'Decidir no escuro', pos: 'Critério claro em cada etapa, do ponto ao primeiro atendimento.' },
+  { ic: '✕', neg: 'Conteúdo genérico', pos: 'Orientações específicas para o seu perfil e orçamento.' },
+  { ic: '✕', neg: 'Demorar meses para abrir', pos: 'Roteiro de execução para ir da decisão à inauguração em 15 a 30 dias.' },
+];
+
+const BenefitsSection = () => (
+  <section style={{ background: 'var(--creme-esc)', padding: '120px 0' }}>
+    <div className="container">
+      <div style={{ maxWidth: 720, marginBottom: 56 }}>
+        <Eyebrow>A TRANSFORMAÇÃO</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(36px, 4.6vw, 60px)', margin: '16px 0 0' }}>
+          O que <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>muda</span>?
+        </h2>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: 1, background: 'var(--cinza-medio)', border: '1px solid var(--cinza-medio)' }}>
+        {BENEFITS.map((b, i) => (
+          <div key={i} style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', background: 'var(--cinza-medio)', gap: 1,
+          }}>
+            <div style={{ background: 'var(--branco)', padding: '24px 22px' }}>
+              <div className="eyebrow" style={{ color: 'var(--cinza-medio)', fontSize: 9, marginBottom: 10 }}>ANTES</div>
+              <div style={{
+                fontFamily: 'var(--f-corpo)', fontSize: 16, color: 'var(--cinza-esc)',
+                textDecoration: 'line-through', textDecorationColor: 'var(--cinza-medio)',
+              }}>{b.neg}</div>
+            </div>
+            <div style={{ background: 'var(--carvao)', color: 'var(--branco)', padding: '24px 22px' }}>
+              <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 9, marginBottom: 10 }}>DEPOIS</div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 16, color: 'var(--branco)' }}>
+                {b.pos}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const TESTIMONIALS = [
+  { name: 'Lucas M.', meta: '27 anos · São Paulo', collaborator: true, photo: 'lucas', img: 'assets/testimonial-lucas.png', quote: 'Em 24 dias abri. O módulo financeiro junto com a planilha me salvaram... eu ia gastar errado na reforma antes de ter caixa de reserva.' },
+
+  { name: 'Rodrigo T.', meta: 'barbeiro há 4 anos · interior do RJ', collaborator: true, photo: 'rodrigo', img: 'assets/testimonial-rodrigo.png', tall: true, quote: 'O que me pegou foi a parte de legislação. Eu ia abrir sem alvará sanitário sem saber. Ia levar multa na primeira semana. O guia me mostrou o que fazer antes de assinar o contrato do ponto.' },
+  { name: 'Felipe R.', meta: 'sem experiência prévia · Curitiba', photo: 'felipe', quote: 'Tentei montar tudo com conteúdo do YouTube. Eram 15 vídeos, cada um falando uma coisa. O guia é tudo no mesmo lugar, na ordem certa. Em 12 dias já tinha data de abertura marcada.' },
+];
+
+const SocialProofSection = () => (
+  <section style={{ background: 'var(--branco)', paddingBottom: 120 }}>
+    {/* Stats: full-bleed, encostado direto na seção anterior (sem padding-top, sem container) */}
+    <div className="stats-bar stats-fullbleed" style={{
+      display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24,
+      padding: '44px 48px', background: 'var(--carvao)', color: 'var(--branco)',
+      marginBottom: 80, position: 'relative',
+    }}>
+      <div className="barber-pole" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4 }} />
+      <div>
+        <div className="display stat-num" style={{ fontSize: 'clamp(36px, 4.4vw, 56px)', color: 'var(--dourado)', fontStyle: 'italic', lineHeight: 1 }}>1000+</div>
+        <div className="eyebrow stat-label" style={{ color: 'var(--branco)', fontSize: 11, marginTop: 10 }}>GUIAS ENTREGUES</div>
+      </div>
+      <div>
+        <div className="display stat-num" style={{ fontSize: 'clamp(36px, 4.4vw, 56px)', color: 'var(--dourado)', fontStyle: 'italic', display: 'flex', alignItems: 'center', gap: 10, lineHeight: 1, flexWrap: 'wrap' }}>
+          4.8 <span style={{ display: 'flex', gap: 3 }}>{[1,2,3,4,5].map(i => <StarIcon key={i} size={16} color="var(--dourado)" />)}</span>
+        </div>
+        <div className="eyebrow stat-label" style={{ color: 'var(--branco)', fontSize: 11, marginTop: 10 }}>AVALIAÇÃO MÉDIA</div>
+      </div>
+      <div>
+        <div className="display stat-num" style={{ fontSize: 'clamp(36px, 4.4vw, 56px)', color: 'var(--dourado)', fontStyle: 'italic', lineHeight: 1, letterSpacing: '-.02em' }}>18 dias</div>
+        <div className="eyebrow stat-label" style={{ color: 'var(--branco)', fontSize: 11, marginTop: 10 }}>TEMPO MÉDIO ATÉ A ABERTURA</div>
+      </div>
+    </div>
+
+    <div className="container">
+      <div style={{ textAlign: 'center', marginBottom: 48 }}>
+        <Eyebrow>QUEM JÁ USOU</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 50px)', margin: '12px 0 0' }}>
+          O que dizem <span style={{ color: 'var(--dourado-esc)', fontStyle: 'italic' }}>os que já abriram</span>.
+        </h2>
+      </div>
+
+      {/* Grid: Lucas (col 1) + Rodrigo (col 3) ocupam 2 linhas; Felipe (col 2) fica na row 1 */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 24 }}>
+
+        {/* LUCAS M. — col 1, rows 1-2 */}
+        <figure style={{
+          margin: 0, padding: '32px 28px',
+          background: 'var(--creme)', borderTop: '3px solid var(--dourado)',
+          position: 'relative', display: 'flex', flexDirection: 'column',
+          gridColumn: '1', gridRow: '1 / 3',
+        }}>
+          <div style={{ position: 'absolute', top: 12, right: 16, fontFamily: 'var(--f-display)', fontSize: 80, fontStyle: 'italic', color: 'var(--dourado)', opacity: .25, lineHeight: .8, fontWeight: 900 }}>"</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 14 }}>
+            {[1,2,3,4,5].map(s => <StarIcon key={s} size={14} color="var(--dourado)" />)}
+          </div>
+          <blockquote style={{ margin: 0, fontFamily: 'var(--f-corpo)', fontSize: 16, fontStyle: 'italic', lineHeight: 1.6, color: 'var(--carvao)' }}>
+            "Em 24 dias abri. O módulo financeiro junto com a planilha me salvaram... eu ia gastar errado na reforma antes de ter caixa de reserva."
+          </blockquote>
+          <div style={{
+            marginTop: 20, flex: '1 1 auto', minHeight: 220,
+            backgroundImage: 'url(assets/testimonial-lucas.png)',
+            backgroundSize: 'cover', backgroundPosition: 'center',
+            border: '1px solid var(--creme-esc)',
+          }} />
+          <figcaption style={{ marginTop: 16, paddingTop: 14, borderTop: '1px solid var(--creme-esc)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 14, color: 'var(--carvao)' }}>Lucas M.</div>
+                <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 12, color: 'var(--cinza-esc)', marginTop: 2 }}>27 anos · São Paulo</div>
+              </div>
+              <div style={{ position: 'relative' }}
+                onMouseEnter={e => { const t = e.currentTarget.querySelector('.collab-tip'); if(t) t.style.opacity='1'; }}
+                onMouseLeave={e => { const t = e.currentTarget.querySelector('.collab-tip'); if(t) t.style.opacity='0'; }}
+                onClick={e => { const t = e.currentTarget.querySelector('.collab-tip'); if(t) t.style.opacity = t.style.opacity==='1'?'0':'1'; }}
+              >
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--carvao)', color: 'var(--dourado)', padding: '4px 10px', fontFamily: 'var(--f-titulo)', fontSize: 9, fontWeight: 700, letterSpacing: '.18em', cursor: 'help', userSelect: 'none' }}>
+                  COLABORADOR <span style={{ display: 'inline-grid', placeItems: 'center', width: 14, height: 14, borderRadius: '50%', border: '1px solid var(--dourado)', fontSize: 9 }}>?</span>
+                </div>
+                <div className="collab-tip" style={{ position: 'absolute', bottom: 'calc(100% + 10px)', right: 0, width: 240, padding: '12px 14px', background: 'var(--carvao)', color: 'var(--branco)', fontFamily: 'var(--f-corpo)', fontSize: 12, lineHeight: 1.5, borderLeft: '3px solid var(--dourado)', boxShadow: '0 12px 30px -12px rgba(0,0,0,.4)', opacity: 0, transition: 'opacity .2s ease', pointerEvents: 'none', zIndex: 5 }}>
+                  Cliente que, usando o guia, saiu do campo das ideias <strong style={{ color: 'var(--dourado)' }}>e ainda somou para o desenvolvimento do material</strong>.
+                </div>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+        {/* FELIPE R. — col 2, row 1 */}
+        <figure style={{
+          margin: 0, padding: '32px 28px',
+          background: 'var(--creme)', borderTop: '3px solid var(--dourado)',
+          position: 'relative', display: 'flex', flexDirection: 'column',
+          gridColumn: '2', gridRow: '1',
+        }}>
+          <div style={{ position: 'absolute', top: 12, right: 16, fontFamily: 'var(--f-display)', fontSize: 80, fontStyle: 'italic', color: 'var(--dourado)', opacity: .25, lineHeight: .8, fontWeight: 900 }}>"</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 14 }}>
+            {[1,2,3,4,5].map(s => <StarIcon key={s} size={14} color="var(--dourado)" />)}
+          </div>
+          <blockquote style={{ margin: 0, fontFamily: 'var(--f-corpo)', fontSize: 16, fontStyle: 'italic', lineHeight: 1.6, color: 'var(--carvao)', flex: 1 }}>
+            "Tentei montar tudo com conteúdo do YouTube. Eram 15 vídeos, cada um falando uma coisa. O guia é tudo no mesmo lugar, na ordem certa. Em 12 dias já tinha data de abertura marcada."
+          </blockquote>
+          <figcaption style={{ marginTop: 'auto', paddingTop: 14, borderTop: '1px solid var(--creme-esc)' }}>
+            <div style={{ fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 14, color: 'var(--carvao)' }}>Felipe R.</div>
+            <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 12, color: 'var(--cinza-esc)', marginTop: 2 }}>sem experiência prévia · Curitiba</div>
+          </figcaption>
+        </figure>
+
+        {/* RODRIGO T. — col 3, rows 1-2, foto portrait */}
+        <figure style={{
+          margin: 0, padding: '32px 28px',
+          background: 'var(--creme)', borderTop: '3px solid var(--dourado)',
+          position: 'relative', display: 'flex', flexDirection: 'column',
+          gridColumn: '3', gridRow: '1 / 3',
+        }}>
+          <div style={{ position: 'absolute', top: 12, right: 16, fontFamily: 'var(--f-display)', fontSize: 80, fontStyle: 'italic', color: 'var(--dourado)', opacity: .25, lineHeight: .8, fontWeight: 900 }}>"</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 14 }}>
+            {[1,2,3,4,5].map(s => <StarIcon key={s} size={14} color="var(--dourado)" />)}
+          </div>
+          <blockquote style={{ margin: 0, fontFamily: 'var(--f-corpo)', fontSize: 16, fontStyle: 'italic', lineHeight: 1.6, color: 'var(--carvao)' }}>
+            "O que me pegou foi a parte de legislação. Eu ia abrir sem alvará sanitário sem saber. Ia levar multa na primeira semana. O guia me mostrou o que fazer antes de assinar o contrato do ponto."
+          </blockquote>
+          <div style={{
+            marginTop: 20, flex: '1 1 auto', minHeight: 340,
+            backgroundImage: 'url(assets/testimonial-rodrigo.png)',
+            backgroundSize: 'cover', backgroundPosition: 'center top',
+            border: '1px solid var(--creme-esc)',
+          }} />
+          <figcaption style={{ marginTop: 16, paddingTop: 14, borderTop: '1px solid var(--creme-esc)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 14, color: 'var(--carvao)' }}>Rodrigo T.</div>
+                <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 12, color: 'var(--cinza-esc)', marginTop: 2 }}>barbeiro há 4 anos · interior do RJ</div>
+              </div>
+              <div style={{ position: 'relative' }}
+                onMouseEnter={e => { const t = e.currentTarget.querySelector('.collab-tip2'); if(t) t.style.opacity='1'; }}
+                onMouseLeave={e => { const t = e.currentTarget.querySelector('.collab-tip2'); if(t) t.style.opacity='0'; }}
+                onClick={e => { const t = e.currentTarget.querySelector('.collab-tip2'); if(t) t.style.opacity = t.style.opacity==='1'?'0':'1'; }}
+              >
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--carvao)', color: 'var(--dourado)', padding: '4px 10px', fontFamily: 'var(--f-titulo)', fontSize: 9, fontWeight: 700, letterSpacing: '.18em', cursor: 'help', userSelect: 'none' }}>
+                  COLABORADOR <span style={{ display: 'inline-grid', placeItems: 'center', width: 14, height: 14, borderRadius: '50%', border: '1px solid var(--dourado)', fontSize: 9 }}>?</span>
+                </div>
+                <div className="collab-tip2" style={{ position: 'absolute', bottom: 'calc(100% + 10px)', right: 0, width: 240, padding: '12px 14px', background: 'var(--carvao)', color: 'var(--branco)', fontFamily: 'var(--f-corpo)', fontSize: 12, lineHeight: 1.5, borderLeft: '3px solid var(--dourado)', boxShadow: '0 12px 30px -12px rgba(0,0,0,.4)', opacity: 0, transition: 'opacity .2s ease', pointerEvents: 'none', zIndex: 5 }}>
+                  Cliente que, usando o guia, saiu do campo das ideias <strong style={{ color: 'var(--dourado)' }}>e ainda somou para o desenvolvimento do material</strong>.
+                </div>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+        {/* Célula vazia col 2, row 2 */}
+        <div style={{ gridColumn: '2', gridRow: '2' }} />
+
+      </div>
+    </div>
+  </section>
+);
+
+Object.assign(window, { ModulesSection, BenefitsSection, SocialProofSection });
+
+// === sections-3.jsx ===
+// SECTIONS PART 3 — Offer, Objections, Bonus, Guarantee, FAQ, Final CTA, Footer
+
+const OFFER_ITEMS = [
+  { t: 'Guia do Barbeiro — 9 módulos completos', tag: 'De R$ 49,90' },
+  { t: 'Seção “Para o seu perfil” em cada módulo', tag: 'incluso' },
+  { t: 'Referência rápida de ferramentas por categoria', tag: 'incluso' },
+  { t: 'Acesso futuro ao app ManualChave — gratuito para quem comprar agora', tag: 'grátis' },
+];
+
+const OfferSection = () => (
+  <section id="oferta" style={{ background: 'var(--carvao-deep)', color: 'var(--branco)', padding: '140px 0', position: 'relative', overflow: 'hidden' }} className="grain">
+    <div className="container-narrow" style={{ position: 'relative' }}>
+      <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <Eyebrow>A OFERTA</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(36px, 4.8vw, 60px)', margin: '16px 0 0', color: 'var(--branco)' }}>
+          Tudo que está incluso.
+        </h2>
+      </div>
+
+      <div style={{
+        background: 'var(--carvao)',
+        border: '1px solid #2c2c2c',
+        position: 'relative',
+        padding: '48px 48px 40px',
+      }}>
+        {/* Corner decorations */}
+        <div style={{ position: 'absolute', top: 14, left: 14, color: 'var(--dourado)' }}><DecoCorner size={42} /></div>
+        <div style={{ position: 'absolute', top: 14, right: 14, color: 'var(--dourado)' }}><DecoCorner size={42} flip /></div>
+        <div style={{ position: 'absolute', bottom: 14, left: 14, color: 'var(--dourado)', transform: 'scaleY(-1)' }}><DecoCorner size={42} /></div>
+        <div style={{ position: 'absolute', bottom: 14, right: 14, color: 'var(--dourado)', transform: 'scaleY(-1) scaleX(-1)' }}><DecoCorner size={42} /></div>
+
+        <div style={{ textAlign: 'center', paddingTop: 16 }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 10, letterSpacing: '.4em' }}>MANUALCHAVE · MANUAL Nº 01</div>
+          <h3 className="display" style={{ fontSize: 'clamp(36px, 4.6vw, 56px)', color: 'var(--branco)', margin: '12px 0 0' }}>
+            Guia <span style={{ fontStyle: 'italic', color: 'var(--dourado)' }}>do</span> Barbeiro
+          </h3>
+          <DecoRule glyph="◆ ◆ ◆" style={{ marginTop: 20, opacity: .9 }} />
+        </div>
+
+        <ul style={{ listStyle: 'none', padding: 0, margin: '40px 0 0' }}>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          {OFFER_ITEMS.map((it, i) => (
+            <li key={i} style={{
+              display: 'grid', gridTemplateColumns: '32px 1fr auto', gap: 14,
+              padding: '16px 0', borderBottom: i === OFFER_ITEMS.length - 1 ? 'none' : '1px solid #2a2a2a',
+              alignItems: 'center',
+            }}>
+              <div style={{ color: 'var(--dourado)', fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 16 }}>✓</div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 16, lineHeight: 1.55, color: 'rgba(255,255,255,.92)' }}>
+                {it.app ? (
+                  <span
+                    style={{ position: 'relative', cursor: 'help', borderBottom: '1px dashed var(--dourado)' }}
+                    onMouseEnter={e => { const tip = e.currentTarget.querySelector('.app-tip'); if (tip) tip.style.opacity = '1'; }}
+                    onMouseLeave={e => { const tip = e.currentTarget.querySelector('.app-tip'); if (tip) tip.style.opacity = '0'; }}
+                    onClick={e => { const tip = e.currentTarget.querySelector('.app-tip'); if (tip) tip.style.opacity = tip.style.opacity === '1' ? '0' : '1'; }}
+                  >
+                    {it.t}
+                    <span className="app-tip" style={{
+                      position: 'absolute', bottom: 'calc(100% + 12px)', left: 0,
+                      width: 'min(360px, 80vw)', padding: '16px 18px',
+                      background: 'var(--creme)', color: 'var(--carvao)',
+                      fontFamily: 'var(--f-corpo)', fontSize: 13, lineHeight: 1.55,
+                      borderLeft: '3px solid var(--dourado)',
+                      boxShadow: '0 18px 40px -14px rgba(0,0,0,.55)',
+                      opacity: 0, transition: 'opacity .2s ease',
+                      pointerEvents: 'none', zIndex: 5, textAlign: 'left',
+                    }}>
+                      <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 9, fontWeight: 700, color: 'var(--dourado-esc)', letterSpacing: '.16em', marginBottom: 8 }}>◆ BENEFÍCIO FUNDADOR</div>
+                      Ao comprar, você garante <strong>acesso gratuito no lançamento do app</strong> — manual interativo + gerenciador básico para operar desde o primeiro dia.
+                      <div style={{ marginTop: 8 }}>Desconto exclusivo no <strong>gerenciador PRO</strong>, com IA consultora e outras funcionalidades, quando lançar.</div>
+                      <div style={{ marginTop: 8, fontStyle: 'italic', color: 'var(--dourado-esc)' }}>Benefício exclusivo para fundadores.</div>
+                    </span>
+                  </span>
+                ) : it.t}
+              </div>
+              <div style={{
+                fontFamily: 'var(--f-titulo)', fontSize: 10, fontWeight: 700,
+                color: 'var(--dourado)', letterSpacing: '.14em', textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
+              }}>[ {it.tag} ]</div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Bônus card — "O Trabalho Vem Antes" */}
+        <div style={{
+          marginTop: 32,
+          padding: '28px 32px',
+          background: 'linear-gradient(180deg, rgba(201,168,76,.10) 0%, rgba(201,168,76,.04) 100%)',
+          border: '1px solid var(--dourado-esc)',
+          borderLeft: '3px solid var(--dourado)',
+        }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 10 }}>
+            ◆ BÔNUS INCLUÍDO
+          </div>
+          <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 18, fontWeight: 700, color: 'var(--branco)', marginTop: 10, lineHeight: 1.4 }}>
+            Material bônus — enviado 7 dias depois
+          </div>
+          <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 15, color: 'rgba(255,255,255,.78)', marginTop: 10, lineHeight: 1.65 }}>
+            Tem um material que não está à venda e não está descrito aqui. Você recebe sete dias depois da compra — quando a maioria das pessoas começa a questionar se vai conseguir. <strong style={{ color: 'var(--dourado)' }}>Isso não é coincidência.</strong>
+          </div>
+        </div>
+
+        <div style={{ borderTop: '1.5px solid var(--dourado)', marginTop: 36, paddingTop: 32, textAlign: 'center' }}>
+          <div className="eyebrow" style={{ color: 'var(--cinza-medio)', fontSize: 10 }}>DE</div>
+          <div style={{ fontFamily: 'var(--f-display)', fontStyle: 'italic', fontSize: 32, color: 'var(--cinza-medio)', marginTop: 6, textDecoration: 'line-through', textDecorationColor: 'var(--dourado-esc)' }}>
+            R$ 49,90
+          </div>
+          <div style={{ marginTop: 18 }}>
+            <div className="eyebrow" style={{ color: 'var(--dourado-clr)', fontSize: 10 }}>POR APENAS</div>
+            <div className="display" style={{ fontSize: 'clamp(70px, 9vw, 120px)', color: 'var(--dourado)', fontStyle: 'italic', lineHeight: 1, marginTop: 6 }}>
+              R$ 19,<span style={{ fontSize: '0.55em' }}>90</span>
+            </div>
+            <div style={{ fontFamily: 'var(--f-titulo)', color: 'var(--cinza-medio)', fontSize: 12, marginTop: 6 }}>
+              à vista · ou parcelado no cartão
+            </div>
+          </div>
+
+          <div style={{ marginTop: 32 }}>
+            <a href="#cta-final" className="btn-primary" style={{ fontSize: 16, padding: '20px 36px' }}>
+              QUERO O GUIA DO BARBEIRO — R$ 19,90 <span className="arrow">→</span>
+            </a>
+          </div>
+          <div style={{ fontFamily: 'var(--f-titulo)', color: 'var(--cinza-medio)', fontSize: 12, marginTop: 18, letterSpacing: '.08em' }}>
+            ✓ ACESSO IMEDIATO · ✓ 7 DIAS DE GARANTIA · ✓ PIX OU CARTÃO
+          </div>
+        </div>
+
+        {/* Removed: locked-in future bonuses block (replaced by single bônus card above) */}
+      </div>
+    </div>
+  </section>
+);
+
+const OBJECTIONS = [
+  {
+    q: '“Mas eu já vi conteúdo gratuito sobre isso no YouTube.”',
+    a: 'Você viu. E provavelmente ainda está no mesmo ponto. O problema do conteúdo gratuito não é a qualidade — é a falta de ordem e coesão. Cada vídeo no seu contexto, sem conversa entre si, e nenhum considerando o seu orçamento. O guia foi construído para funcionar como um todo. Cada módulo considera o anterior. Isso muda tudo.',
+  },
+  {
+    q: '“R$ 19,90 ainda é dinheiro para mim agora.”',
+    a: 'É justo avaliar. Mas pensa o outro lado: quantas horas você já gastou pesquisando sem sair do lugar? Esse tempo tem valor. E um erro em contrato, CNPJ ou precificação custa muito mais do que R$ 19,90 para corrigir. O guia existe para você gastar certo desde o início.',
+  },
+  {
+    q: '“Minha situação é diferente — não sei se funciona para mim.”',
+    a: 'Foi exatamente por isso que o guia foi construído com 6 perfis diferentes. Sem verba até com capital disponível. Sem experiência até barbeiro veterano. Cada módulo tem uma seção específica para o seu perfil. Você não vai ler conteúdo que não se aplica a você.',
+  },
+];
+
+const ObjectionsSection = () => (
+  <section style={{ background: 'var(--creme)', padding: '120px 0' }}>
+    <div className="container-narrow">
+      <div style={{ marginBottom: 48 }}>
+        <Eyebrow>RESPOSTAS DIRETAS</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(32px, 4.4vw, 52px)', margin: '12px 0 0' }}>
+          Você está pensando isso. <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>Faz sentido.</span>
+        </h2>
+      </div>
+
+      {OBJECTIONS.map((o, i) => (
+        <div key={i} style={{ padding: '32px 0', borderTop: '1px solid var(--creme-esc)', borderBottom: i === OBJECTIONS.length - 1 ? '1px solid var(--creme-esc)' : 'none' }}>
+          <div style={{
+            fontFamily: 'var(--f-display)', fontStyle: 'italic', fontSize: 'clamp(22px, 2.6vw, 30px)',
+            fontWeight: 700, color: 'var(--carvao)', marginBottom: 14, lineHeight: 1.3,
+          }}>{o.q}</div>
+          <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 17, lineHeight: 1.7, color: 'var(--cinza-esc)' }}>
+            {o.a}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+const BonusSection = () => (
+  <section style={{ background: 'var(--carvao)', color: 'var(--branco)', padding: '60px 0 100px', position: 'relative' }}>
+    <div className="container">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 64, alignItems: 'center' }}>
+        <div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 12px', border: '1px solid var(--dourado)', color: 'var(--dourado)', marginBottom: 20 }}>
+            <span style={{ fontSize: 14 }}>⏳</span>
+            <span className="eyebrow" style={{ fontSize: 10, color: 'var(--dourado)' }}>OFERTA DE LANÇAMENTO</span>
+          </div>
+          <h2 className="display" style={{ fontSize: 'clamp(32px, 4.4vw, 52px)', color: 'var(--branco)' }}>
+            <span style={{ fontStyle: 'italic', color: 'var(--dourado)' }}>Um bônus</span> de persistência.
+          </h2>
+          <p className="lede" style={{ color: 'rgba(255,255,255,.78)', marginTop: 18 }}>
+            Quando o período de lançamento encerrar, esses materiais saem da oferta principal.
+          </p>
+        </div>
+        <div style={{ display: 'grid', gap: 16 }}>
+          {[
+            { tag: 'BÔNUS', t: 'Brinde de Persistência · 7 dias depois', d: 'Sete dias depois da sua compra, um material extra cai no seu e-mail — feito pra te empurrar quando o cansaço bater e o sonho parecer longe. Porque abrir uma barbearia não é sobre o primeiro dia. É sobre não desistir até a porta abrir.' },
+          ].map((b, i) => (
+            <div key={i} style={{
+              background: 'var(--carvao-med)', padding: '24px 28px',
+              borderLeft: '4px solid var(--dourado)',
+            }}>
+              <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 10 }}>{b.tag}</div>
+              <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 20, fontWeight: 700, color: 'var(--branco)', marginTop: 4 }}>{b.t}</div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 15, color: 'rgba(255,255,255,.7)', marginTop: 8, lineHeight: 1.6 }}>{b.d}</div>
+              <div style={{
+                marginTop: 16,
+                fontFamily: 'var(--f-display)', fontStyle: 'italic', fontWeight: 900,
+                fontSize: 14, color: 'var(--carvao)',
+                background: 'var(--dourado)', padding: '6px 14px',
+                display: 'inline-block',
+              }}>GRÁTIS</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const GuaranteeSection = () => (
+  <section style={{ background: 'var(--creme-esc)', padding: '100px 0' }}>
+    <div className="container-narrow" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 48, alignItems: 'center' }}>
+      <div style={{
+        width: 180, height: 180, borderRadius: '50%',
+        background: 'var(--carvao)', color: 'var(--dourado)',
+        display: 'grid', placeItems: 'center', position: 'relative',
+        border: '3px solid var(--dourado)',
+      }}>
+        <svg width="180" height="180" viewBox="0 0 180 180" style={{ position: 'absolute', inset: 0, animation: 'spin 30s linear infinite' }}>
+          <defs>
+            <path id="circ" d="M 90,90 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" />
+          </defs>
+          <text fill="var(--dourado)" fontFamily="var(--f-titulo)" fontSize="11" letterSpacing="3">
+            <textPath xlinkHref="#circ">GARANTIA · 7 DIAS · INCONDICIONAL · MANUALCHAVE · </textPath>
+          </text>
+        </svg>
+        <style>{`@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }`}</style>
+        <div style={{ textAlign: 'center' }}>
+          <div className="display" style={{ fontStyle: 'italic', fontSize: 56, color: 'var(--dourado)', lineHeight: 1 }}>7</div>
+          <div className="eyebrow" style={{ fontSize: 9, color: 'var(--dourado-clr)', marginTop: 4 }}>DIAS</div>
+        </div>
+      </div>
+      <div>
+        <Eyebrow>GARANTIA</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(28px, 3.4vw, 42px)', margin: '12px 0 18px' }}>
+          O risco é zero. <span style={{ fontStyle: 'italic', color: 'var(--dourado-esc)' }}>A decisão é sua.</span>
+        </h2>
+        <p style={{ fontFamily: 'var(--f-corpo)', fontSize: 17, lineHeight: 1.65, color: 'var(--cinza-esc)' }}>
+          Compre, acesse, leia. Se por qualquer motivo o Guia do Barbeiro não for o que você esperava, basta pedir o reembolso em até 7 dias após a compra — e você recebe <strong style={{ color: 'var(--carvao)' }}>100% do valor de volta</strong>, sem precisar explicar nada.
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
+const FAQS = [
+  { q: 'Preciso ter experiência como barbeiro para aproveitar o guia?', a: 'Não. O guia tem uma seção em cada módulo para quem nunca trabalhou em barbearia. Quem já tem experiência também tem sua seção própria.' },
+  { q: 'Funciona para quem tem pouco dinheiro para investir?', a: 'Sim. O módulo financeiro apresenta o investimento real por três faixas: sem verba, pouca verba e verba ideal. Você vai ver o que é possível dentro do que tem — e a ordem certa de gastar.' },
+  { q: 'Como funciona o acesso após a compra?', a: 'Imediato. Assim que o pagamento for confirmado, você recebe o acesso ao material. Sem espera.' },
+  { q: 'Posso pagar no Pix ou cartão?', a: 'Sim. Pix, cartão de crédito ou débito. O parcelamento segue as condições da plataforma de pagamento.' },
+  { q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia incondicional. Acesse, leia, e se não for o que esperava, peça o reembolso. 100% do valor devolvido, sem burocracia.' },
+  { q: 'Já vi muito conteúdo gratuito. O que esse guia tem de diferente?', a: 'Ordem, coesão e personalização. Cada módulo se conecta ao anterior, e cada um tem orientações específicas para o seu perfil. É a diferença entre ter as peças e ter o quebra-cabeça montado.' },
+  { q: 'Quanto tempo leva para consumir o guia?', a: 'Você consegue ler o guia completo em uma tarde. Material denso e direto, sem enrolação. Depois da primeira leitura, volta módulo por módulo para executar.' },
+  { q: 'Serve para abrir salão de beleza ou outro negócio?', a: 'Não. O Guia do Barbeiro foi desenvolvido especificamente para barbearia. Versões para outros segmentos estão em desenvolvimento pela ManualChave.' },
+];
+
+const FAQItem = ({ q, a }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div style={{ borderTop: '1px solid var(--creme-esc)' }}>
+      <button onClick={() => setOpen(!open)} style={{
+        width: '100%', display: 'grid', gridTemplateColumns: '1fr auto', gap: 24,
+        padding: '24px 0', textAlign: 'left',
+      }}>
+        <span style={{ fontFamily: 'var(--f-titulo)', fontSize: 18, fontWeight: 600, color: 'var(--carvao)' }}>{q}</span>
+        <span style={{
+          fontFamily: 'var(--f-display)', fontStyle: 'italic', fontSize: 28, lineHeight: 1,
+          color: 'var(--dourado)', transform: open ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform .25s',
+        }}>+</span>
+      </button>
+      <div style={{
+        maxHeight: open ? 400 : 0, overflow: 'hidden',
+        transition: 'max-height .35s ease, padding .35s ease',
+        paddingBottom: open ? 24 : 0,
+      }}>
+        <p style={{ margin: 0, fontFamily: 'var(--f-corpo)', fontSize: 16, lineHeight: 1.65, color: 'var(--cinza-esc)', maxWidth: 720 }}>
+          {a}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const FAQSection = () => (
+  <section style={{ background: 'var(--branco)', padding: '120px 0' }}>
+    <div className="container-narrow">
+      <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <Eyebrow>PERGUNTAS FREQUENTES</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 50px)', margin: '12px 0 0' }}>
+          Tirando do caminho.
+        </h2>
+      </div>
+      <div style={{ borderBottom: '1px solid var(--creme-esc)' }}>
+        {FAQS.map((f, i) => <FAQItem key={i} {...f} />)}
+      </div>
+    </div>
+  </section>
+);
+
+const FinalCTASection = () => (
+  <section id="cta-final" style={{
+    background: 'var(--carvao-deep)', color: 'var(--branco)',
+    padding: '140px 0', position: 'relative', overflow: 'hidden',
+  }} className="grain">
+    <div style={{ position: 'absolute', top: 40, left: '50%', transform: 'translateX(-50%)', color: 'var(--dourado)', opacity: .3 }}>
+      <ScissorsIcon size={48} color="var(--dourado)" />
+    </div>
+    <div className="container-narrow" style={{ textAlign: 'center', position: 'relative' }}>
+      <DecoRule glyph="◆ ◆ ◆" style={{ marginBottom: 28 }} />
+      <Eyebrow color="var(--dourado-clr)">A DECISÃO</Eyebrow>
+      <h2 className="display" style={{ fontSize: 'clamp(40px, 5.5vw, 80px)', margin: '20px 0 0', color: 'var(--branco)' }}>
+        Você chegou até aqui porque a barbearia <span style={{ fontStyle: 'italic', color: 'var(--dourado)' }}>ainda não saiu do papel</span>.
+      </h2>
+      <p className="lede" style={{ color: 'rgba(255,255,255,.78)', maxWidth: 640, margin: '32px auto 0' }}>
+        Talvez falte clareza. Talvez falte coragem. Mas muito provavelmente falta um <strong style={{ color: 'var(--branco)' }}>roteiro</strong> — algo que te diga o que fazer agora, o que fazer depois, e o que considerar no caminho.
+      </p>
+      <p style={{ fontFamily: 'var(--f-display)', fontStyle: 'italic', fontSize: 'clamp(22px, 2.6vw, 32px)', color: 'var(--dourado-clr)', marginTop: 32, fontWeight: 700 }}>
+        Esse material existe. Custa R$ 19,90.
+      </p>
+
+      <div style={{ marginTop: 40 }}>
+        <a href="#oferta" className="btn-primary" style={{ fontSize: 17, padding: '22px 40px' }}>
+          QUERO O GUIA DO BARBEIRO — R$ 19,90 <span className="arrow">→</span>
+        </a>
+        <div style={{ fontFamily: 'var(--f-titulo)', color: 'var(--cinza-medio)', fontSize: 12, marginTop: 18, letterSpacing: '.08em' }}>
+          ACESSO IMEDIATO · GARANTIA DE 7 DIAS · SEM RISCO
+        </div>
+      </div>
+
+      <DecoRule glyph="◆" style={{ margin: '80px 0 32px' }} />
+
+      <div style={{
+        textAlign: 'left', maxWidth: 640, margin: '0 auto',
+        padding: '32px 36px', borderLeft: '3px solid var(--dourado)',
+        background: 'rgba(255,255,255,.03)',
+      }}>
+        <div className="eyebrow" style={{ color: 'var(--dourado)' }}>P.S.</div>
+        <p style={{ fontFamily: 'var(--f-corpo)', fontSize: 16, lineHeight: 1.65, color: 'rgba(255,255,255,.85)', marginTop: 12 }}>
+          Todo mundo que hoje tem uma barbearia aberta passou pelo mesmo momento que você está agora — com dúvida, com medo, sem saber por onde começar. A diferença entre quem abriu e quem ficou na intenção não foi talento nem dinheiro. <strong style={{ color: 'var(--dourado)' }}>Foi ter um caminho claro.</strong>
+        </p>
+        <p style={{ fontFamily: 'var(--f-corpo)', fontSize: 16, lineHeight: 1.65, color: 'rgba(255,255,255,.85)', marginTop: 14 }}>
+          Se servir — e vai servir — você vai olhar para trás e lembrar que tudo começou com uma decisão de R$ 19,90.
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
+const Footer = () => (
+  <footer style={{ background: 'var(--carvao)', color: 'var(--cinza-medio)', padding: '40px 0 24px', borderTop: '1px solid #2a2a2a' }}>
+    <BarberStripe height={3} />
+    <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, paddingTop: 28 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ width: 28, height: 28, border: '1.5px solid var(--dourado)', display: 'grid', placeItems: 'center' }}>
+          <span style={{ fontFamily: 'var(--f-display)', fontWeight: 900, color: 'var(--dourado)', fontSize: 14 }}>M</span>
+        </div>
+        <div className="eyebrow" style={{ color: 'var(--cinza-medio)', fontSize: 10 }}>MANUALCHAVE · MANUAL Nº 01</div>
+      </div>
+      <div style={{ fontFamily: 'var(--f-corpo)', fontStyle: 'italic', fontSize: 13 }}>
+        © 2026 ManualChave · manualchave.com.br
+      </div>
+      <div style={{ display: 'flex', gap: 24, fontFamily: 'var(--f-titulo)', fontSize: 12, letterSpacing: '.05em' }}>
+        <a href="#" style={{ textDecoration: 'none', color: 'var(--cinza-medio)' }}>TERMOS</a>
+        <a href="#" style={{ textDecoration: 'none', color: 'var(--cinza-medio)' }}>PRIVACIDADE</a>
+        <a href="#" style={{ textDecoration: 'none', color: 'var(--cinza-medio)' }}>SUPORTE</a>
+      </div>
+    </div>
+  </footer>
+);
+
+Object.assign(window, { OfferSection, ObjectionsSection, BonusSection, GuaranteeSection, FAQSection, FinalCTASection, Footer });
+
+// === sections-4.jsx ===
+// PRODUCTS SECTION — ManualChave brand block + 3 standardized product covers
+
+const ProductCover = ({ accent, title1, title2, icon, ribbon }) => (
+  <div style={{
+    position: 'relative',
+    width: '100%',
+    aspectRatio: '3 / 4',
+    background: '#1A1A1A',
+    color: '#fff',
+    overflow: 'hidden',
+    boxShadow: '0 24px 48px -16px rgba(0,0,0,.55)',
+  }}>
+    {/* Inner border frame */}
+    <div style={{
+      position: 'absolute', inset: 12,
+      border: `1px solid ${accent}`,
+      pointerEvents: 'none',
+    }} />
+    {/* Top + bottom solid bars */}
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: accent }} />
+    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 6, background: accent }} />
+
+    {/* Ribbon */}
+    {ribbon && (
+      <div style={{
+        position: 'absolute', top: 18, right: -36,
+        background: accent, color: '#1A1A1A',
+        fontFamily: 'var(--f-titulo)', fontWeight: 700, fontSize: 9,
+        letterSpacing: '.18em', padding: '4px 40px',
+        transform: 'rotate(35deg)', zIndex: 3,
+      }}>{ribbon}</div>
+    )}
+
+    {/* Cover content — 3-row grid */}
+    <div style={{
+      position: 'absolute', inset: 24,
+      display: 'grid',
+      gridTemplateRows: 'auto 1fr auto',
+      textAlign: 'center',
+    }}>
+      {/* Top row */}
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <DecoCorner size={26} color={accent} />
+          <DecoCorner size={26} color={accent} flip />
+        </div>
+        <div className="eyebrow" style={{ color: accent, fontSize: 8, letterSpacing: '.32em', marginTop: 10 }}>
+          MANUALCHAVE
+        </div>
+      </div>
+
+      {/* Middle row — content */}
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 14, padding: '12px 4px' }}>
+        <div style={{
+          fontFamily: 'var(--f-display)', fontStyle: 'italic',
+          fontSize: 'clamp(10px, 1.05vw, 12px)', color: accent, opacity: .85,
+        }}>O guia definitivo para abrir</div>
+
+        <div className="display" style={{
+          fontSize: 'clamp(22px, 2.4vw, 30px)', color: '#fff', lineHeight: .95,
+          fontStyle: 'italic',
+        }}>
+          {title1}<br/>
+          <span style={{ color: accent, fontWeight: 900 }}>{title2}</span>
+        </div>
+
+        <div style={{ width: 36, height: 1, background: accent, opacity: .6 }} />
+
+        <div>{icon}</div>
+
+        <div className="mono" style={{
+          fontSize: 8, letterSpacing: '.3em', color: accent, opacity: .7,
+        }}>VOL · DA COLEÇÃO</div>
+      </div>
+
+      {/* Bottom row */}
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <DecoCorner size={22} color={accent} style={{ transform: 'scaleY(-1)' }} />
+          <div className="eyebrow" style={{ color: accent, fontSize: 8 }}>EDIÇÃO 2026</div>
+          <DecoCorner size={22} color={accent} flip style={{ transform: 'scaleY(-1) scaleX(-1)' }} />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const ScissorsBig = ({ color }) => (
+  <svg width="42" height="42" viewBox="0 0 32 32" fill="none">
+    <circle cx="9" cy="22" r="4" stroke={color} strokeWidth="1.4"/>
+    <circle cx="23" cy="22" r="4" stroke={color} strokeWidth="1.4"/>
+    <path d="M11.8 19.2 L26 5" stroke={color} strokeWidth="1.4"/>
+    <path d="M20.2 19.2 L6 5" stroke={color} strokeWidth="1.4"/>
+    <path d="M16 13 L20 17" stroke={color} strokeWidth="1.4"/>
+  </svg>
+);
+
+const HairDryer = ({ color }) => (
+  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" stroke={color} strokeWidth="1.4">
+    <path d="M5 10 L20 6 L20 18 L5 14 Z"/>
+    <circle cx="13" cy="12" r="3"/>
+    <path d="M20 11 L25 9 L25 15 L20 13"/>
+    <path d="M11 18 L11 24 M9 24 L13 24"/>
+    <path d="M11 14 L11 18"/>
+  </svg>
+);
+
+const TweezerEye = ({ color }) => (
+  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" stroke={color} strokeWidth="1.4">
+    <path d="M4 16 Q16 6 28 16 Q16 26 4 16 Z"/>
+    <circle cx="16" cy="16" r="3.5"/>
+    <circle cx="16" cy="16" r="1.2" fill={color} stroke="none"/>
+    <path d="M10 2 L16 12" />
+    <path d="M22 2 L16 12" />
+  </svg>
+);
+
+// Standardized product card — ALL three identical structure
+const ProductCard = ({ accent, accentSoft, accentLabel, vol, name, tagline, available, ctaLabel, ctaHref, onSubscribe, sent, subscribeColor }) => {
+  const [open, setOpen] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+
+  return (
+    <div style={{
+      background: available ? `linear-gradient(180deg, rgba(201,168,76,.08), rgba(201,168,76,.02))` : `rgba(255,255,255,.02)`,
+      border: available ? '2px solid var(--dourado)' : `1px solid ${accent}`,
+      padding: 28,
+      display: 'flex', flexDirection: 'column',
+      gap: 24,
+      position: 'relative',
+    }}>
+      {/* Cover — fixed aspect, never clipped */}
+      <div style={{ width: '100%' }}>
+        <ProductCover {...{ accent, ...arguments[0].cover }} />
+      </div>
+
+      {/* Info block — STANDARDIZED across cards */}
+      <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
+        <div>
+          <div className="eyebrow" style={{ color: accentLabel, fontSize: 11, marginBottom: 8 }}>VOL · {vol}</div>
+          <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 20, fontWeight: 700, color: 'var(--branco)', marginBottom: 6 }}>
+            {name}
+          </div>
+          <div style={{ fontFamily: 'var(--f-corpo)', fontStyle: 'italic', fontSize: 14, color: 'rgba(255,255,255,.65)', minHeight: 40, lineHeight: 1.4 }}>
+            {tagline}
+          </div>
+        </div>
+
+        {/* CTA area — fixed minimum height for alignment */}
+        <div style={{ marginTop: 'auto', minHeight: 100, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+          {available ? (
+            <a href={ctaHref} className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: 13, padding: '14px 18px' }}>
+              {ctaLabel} <span className="arrow">→</span>
+            </a>
+          ) : !open ? (
+            <button onClick={() => setOpen(true)} style={{
+              width: '100%', padding: '14px 18px', border: `1.5px solid ${accent}`,
+              color: accent, background: 'transparent', fontFamily: 'var(--f-titulo)',
+              fontWeight: 600, fontSize: 12, letterSpacing: '.12em', textTransform: 'uppercase', cursor: 'pointer',
+              transition: 'all .2s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = accent; e.currentTarget.style.color = subscribeColor || '#1A1A1A'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = accent; }}
+            >QUERO DESCONTO NO LANÇAMENTO</button>
+          ) : sent ? (
+            <div style={{ padding: '14px', background: accentSoft, border: `1px solid ${accent}`, color: '#fff', fontSize: 13, textAlign: 'center' }}>
+              ✓ Pronto. Você está na lista do desconto.
+            </div>
+          ) : (
+            <div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 12.5, color: 'rgba(255,255,255,.7)', textAlign: 'left', lineHeight: 1.5, marginBottom: 10 }}>
+                Deixe seu e-mail e garanta desconto exclusivo no lançamento — ou presenteie alguém que você sabe que tem esse sonho.
+              </div>
+              <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="seu@email.com" style={{
+                width: '100%', padding: '12px 14px', background: '#0d0d0d', border: `1px solid ${accent}`,
+                color: '#fff', fontFamily: 'var(--f-corpo)', fontSize: 13, marginBottom: 8,
+                outline: 'none', boxSizing: 'border-box',
+              }} />
+              <button onClick={() => onSubscribe()} style={{
+                width: '100%', padding: '12px 18px', background: accent,
+                color: subscribeColor || '#1A1A1A', border: 'none', fontFamily: 'var(--f-titulo)',
+                fontWeight: 700, fontSize: 12, letterSpacing: '.12em', cursor: 'pointer',
+              }}>GARANTIR DESCONTO</button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Simpler version using direct render (avoid arguments hack)
+const StandardCard = ({ accent, accentLabel, vol, name, tagline, cover, available, ctaLabel, ctaHref, sent, onSubscribe, subscribeColor, ribbon }) => {
+  const [open, setOpen] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+
+  return (
+    <div style={{
+      background: available ? 'linear-gradient(180deg, rgba(201,168,76,.08), rgba(201,168,76,.02))' : 'rgba(255,255,255,.02)',
+      border: available ? '2px solid var(--dourado)' : `1px solid ${accent}`,
+      padding: 28,
+      display: 'flex', flexDirection: 'column',
+      gap: 24,
+      position: 'relative',
+    }}>
+      <ProductCover {...cover} ribbon={ribbon} />
+
+      <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
+        <div>
+          <div className="eyebrow" style={{ color: accentLabel, fontSize: 11, marginBottom: 8 }}>VOL · {vol}</div>
+          <div style={{ fontFamily: 'var(--f-titulo)', fontSize: 20, fontWeight: 700, color: 'var(--branco)', marginBottom: 6 }}>{name}</div>
+          <div style={{ fontFamily: 'var(--f-corpo)', fontStyle: 'italic', fontSize: 14, color: 'rgba(255,255,255,.65)', minHeight: 42, lineHeight: 1.45 }}>
+            {tagline}
+          </div>
+        </div>
+
+        <div style={{ marginTop: 'auto', minHeight: 110, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+          {available ? (
+            <a href={ctaHref} className="btn-primary" style={{ width: '100%', boxSizing: 'border-box', justifyContent: 'center', fontSize: 13, padding: '14px 18px' }}>
+              {ctaLabel} <span className="arrow">→</span>
+            </a>
+          ) : !open ? (
+            <button onClick={() => setOpen(true)} style={{
+              width: '100%', padding: '14px 18px', border: `1.5px solid ${accent}`,
+              color: accent, background: 'transparent', fontFamily: 'var(--f-titulo)',
+              fontWeight: 600, fontSize: 12, letterSpacing: '.12em', textTransform: 'uppercase', cursor: 'pointer',
+              transition: 'all .2s',
+            }}>QUERO DESCONTO NO LANÇAMENTO</button>
+          ) : sent ? (
+            <div style={{ padding: '14px', background: 'rgba(255,255,255,.06)', border: `1px solid ${accent}`, color: '#fff', fontSize: 13, textAlign: 'center' }}>
+              ✓ Pronto. Você está na lista do desconto.
+            </div>
+          ) : (
+            <div>
+              <div style={{ fontFamily: 'var(--f-corpo)', fontSize: 12.5, color: 'rgba(255,255,255,.7)', textAlign: 'left', lineHeight: 1.5, marginBottom: 10 }}>
+                Deixe seu e-mail e garanta desconto exclusivo no lançamento — ou presenteie alguém que você sabe que tem esse sonho.
+              </div>
+              <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="seu@email.com" style={{
+                width: '100%', padding: '12px 14px', background: '#0d0d0d', border: `1px solid ${accent}`,
+                color: '#fff', fontFamily: 'var(--f-corpo)', fontSize: 13, marginBottom: 8,
+                outline: 'none', boxSizing: 'border-box',
+              }} />
+              <button onClick={onSubscribe} style={{
+                width: '100%', padding: '12px 18px', background: accent,
+                color: subscribeColor || '#1A1A1A', border: 'none', fontFamily: 'var(--f-titulo)',
+                fontWeight: 700, fontSize: 12, letterSpacing: '.12em', cursor: 'pointer',
+              }}>GARANTIR DESCONTO</button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ManualChaveSection = () => {
+  const [sentA, setSentA] = React.useState(false);
+  const [sentB, setSentB] = React.useState(false);
+
+  return (
+    <section style={{
+      background: '#1A1A1A', color: '#fff',
+      padding: '120px 0 80px', position: 'relative',
+    }} className="grain">
+      <BarberStripe height={4} style={{ position: 'absolute', top: 0, left: 0, right: 0 }} />
+
+      {/* BLOCO 1 — Quem é a ManualChave */}
+      <div className="container-narrow" style={{ textAlign: 'center', marginBottom: 100 }}>
+        <DecoRule glyph="◆ ◆ ◆" style={{ marginBottom: 32 }} />
+        <div style={{
+          fontFamily: 'var(--f-display)', fontStyle: 'italic',
+          fontSize: 'clamp(48px, 7vw, 96px)', lineHeight: .9,
+          letterSpacing: '-.01em', color: 'var(--branco)',
+        }}>
+          manual<span style={{ fontWeight: 900, fontStyle: 'normal', color: 'var(--dourado)' }}>chave</span>
+        </div>
+        <p className="lede" style={{ color: 'rgba(255,255,255,.78)', maxWidth: 640, margin: '32px auto 0', fontSize: 18 }}>
+          A ManualChave nasceu para eliminar o caos de quem quer abrir um negócio no setor de beleza e estética no Brasil. Sem conteúdo genérico, sem informação solta. <strong style={{ color: 'var(--branco)' }}>Guias completos, personalizados por perfil e orçamento</strong> — do planejamento ao primeiro cliente.
+        </p>
+        <div style={{
+          marginTop: 36, padding: '28px 32px',
+          borderLeft: '3px solid var(--dourado)',
+          background: 'rgba(255,255,255,.03)',
+          textAlign: 'left',
+          maxWidth: 640, margin: '36px auto 0',
+        }}>
+          <div className="eyebrow" style={{ color: 'var(--dourado)', fontSize: 10, marginBottom: 10 }}>NOSSA MISSÃO</div>
+          <div style={{
+            fontFamily: 'var(--f-display)', fontStyle: 'italic',
+            fontSize: 'clamp(20px, 2.4vw, 26px)', lineHeight: 1.4,
+            color: 'var(--branco)',
+          }}>
+            Transformar a jornada de abertura de negócio numa experiência <span style={{ color: 'var(--dourado)' }}>orientada</span> — não num teste de resistência.
+          </div>
+        </div>
+      </div>
+
+      {/* BLOCO 2 — Próximos lançamentos */}
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <Eyebrow color="var(--dourado)">PRÓXIMOS LANÇAMENTOS</Eyebrow>
+          <h2 className="display" style={{
+            fontSize: 'clamp(36px, 4.6vw, 60px)',
+            margin: '16px 0 16px', color: 'var(--branco)',
+          }}>
+            O Guia do Barbeiro <span style={{ fontStyle: 'italic', color: 'var(--dourado)' }}>é apenas o começo.</span>
+          </h2>
+          <p className="lede" style={{ color: 'rgba(255,255,255,.7)', maxWidth: 620, margin: '0 auto' }}>
+            Estamos construindo o ecossistema completo para quem quer abrir no setor de beleza. Cada guia segue a mesma metodologia — conteúdo real, adaptado para o seu perfil e orçamento.
+          </p>
+        </div>
+
+        <div className="products-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 32,
+          alignItems: 'stretch',
+        }}>
+          <StandardCard
+            accent="#C9A84C"
+            accentLabel="var(--dourado)"
+            vol="I"
+            name="Guia do Barbeiro"
+            tagline="Do zero à abertura — em 9 módulos."
+            cover={{ accent: '#C9A84C', title1: 'GUIA do', title2: 'BARBEIRO', icon: <ScissorsBig color="#C9A84C" /> }}
+            ribbon="DISPONÍVEL"
+            available
+            ctaLabel="COMPRAR POR R$ 19,90"
+            ctaHref="#oferta"
+          />
+
+          <StandardCard
+            accent="#C4856A"
+            accentLabel="#C4856A"
+            vol="II"
+            name="Guia do Salão"
+            tagline="Para quem quer abrir um salão de beleza completo."
+            cover={{ accent: '#C4856A', title1: 'GUIA do', title2: 'SALÃO', icon: <HairDryer color="#C4856A" /> }}
+            ribbon="EM BREVE"
+            sent={sentA}
+            onSubscribe={() => setSentA(true)}
+          />
+
+          <StandardCard
+            accent="#8B4558"
+            accentLabel="#B86880"
+            vol="III"
+            name="Guia da Designer"
+            tagline="Para quem trabalha com sobrancelhas e estética facial."
+            cover={{ accent: '#8B4558', title1: 'GUIA da', title2: 'DESIGNER', icon: <TweezerEye color="#8B4558" /> }}
+            ribbon="EM BREVE"
+            sent={sentB}
+            onSubscribe={() => setSentB(true)}
+            subscribeColor="#fff"
+          />
+        </div>
+      </div>
+
+      {/* BLOCO 3 — rodapé da seção */}
+      <div className="container-narrow" style={{ textAlign: 'center', marginTop: 80 }}>
+        <DecoRule glyph="◆" style={{ marginBottom: 28 }} />
+        <p style={{
+          fontFamily: 'var(--f-corpo)', fontStyle: 'italic',
+          fontSize: 17, color: 'rgba(255,255,255,.75)',
+          maxWidth: 640, margin: '0 auto 32px',
+        }}>
+          Todos os guias seguem a mesma metodologia do Guia do Barbeiro: <strong style={{ color: 'var(--branco)', fontStyle: 'normal' }}>9 módulos, 6 perfis</strong>, personalizado para o seu orçamento.
+        </p>
+        <div style={{
+          fontFamily: 'var(--f-display)', fontStyle: 'italic',
+          fontSize: 32, lineHeight: 1, color: 'var(--branco)',
+        }}>
+          manual<span style={{ fontWeight: 900, fontStyle: 'normal', color: 'var(--dourado)' }}>chave</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Object.assign(window, { ManualChaveSection });
+
+// === app.jsx ===
+// APP — orchestrates everything
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "headline": "C",
+  "accentHue": "dourado",
+  "density": "comfortable"
+}/*EDITMODE-END*/;
+
+function App(){
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  // Apply accent color tweak
+  React.useEffect(() => {
+    const map = {
+      dourado: { d: '#C9A84C', e: '#A07830', l: '#E8C97A' },
+      cobre:   { d: '#B86F3C', e: '#8C4A22', l: '#E0A07A' },
+      claro:   { d: '#E0C575', e: '#B8985A', l: '#F2DC9C' },
+    };
+    const c = map[tweaks.accentHue] || map.dourado;
+    document.documentElement.style.setProperty('--dourado', c.d);
+    document.documentElement.style.setProperty('--dourado-esc', c.e);
+    document.documentElement.style.setProperty('--dourado-clr', c.l);
+  }, [tweaks.accentHue]);
+
+  return (
+    <>
+      <Hero tweaks={tweaks} />
+      <OpeningBlock />
+      <PainSection />
+      <SolutionSection />
+      <ProfilesSection />
+      <ModulesSection />
+      <BenefitsSection />
+      <SocialProofSection />
+      <OfferSection />
+      <BonusSection />
+      <ObjectionsSection />
+      <GuaranteeSection />
+      <FAQSection />
+      <FinalCTASection />
+      <ManualChaveSection />
+      <Footer />
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Headline">
+          <TweakRadio
+            label="Variação"
+            value={tweaks.headline}
+            onChange={v => setTweak('headline', v)}
+            options={[
+              { value: 'A', label: 'Energia' },
+              { value: 'B', label: 'Direta' },
+              { value: 'C', label: 'Dor + promessa' },
+            ]}
+          />
+        </TweakSection>
+        <TweakSection title="Cor de acento">
+          <TweakRadio
+            label="Tom"
+            value={tweaks.accentHue}
+            onChange={v => setTweak('accentHue', v)}
+            options={[
+              { value: 'dourado', label: 'Dourado' },
+              { value: 'cobre', label: 'Cobre' },
+              { value: 'claro', label: 'Claro' },
+            ]}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+</body>
+</html>
